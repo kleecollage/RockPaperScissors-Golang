@@ -1,0 +1,26 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>{{ template "title" . }}</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <header>
+    <div>
+      <a href="/">RPS</a>
+    </div>
+    <nav>
+      <a href="/new">Nuevo</a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+  {{ template "content" . }}
+  <footer>
+    <p>Creado por KleeCollage &copy; 2024</p>
+  </footer>
+</body>
+</html>
+{{ end }}
