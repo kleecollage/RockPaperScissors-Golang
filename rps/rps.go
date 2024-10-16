@@ -38,7 +38,7 @@ var loseMessages = []string{
 var drawMessages = []string{
 	"Las grandes mentes piensan igual",
 	"Oh oh. Intentalo de nuevo",
-	"nadie gana, pero puedes intentarlo de nuevo",
+	"Nadie gana, pero puedes intentarlo de nuevo",
 }
 
 // Variables para el puntaje
