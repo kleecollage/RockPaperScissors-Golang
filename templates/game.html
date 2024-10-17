@@ -9,18 +9,18 @@
       <!-- PLAYER -->
       <div class="col py-5 text-center">
         <h2>{{ .Name }}</h2>
-        <p class="fw-bold">0</p>
+        <p class="fw-bold" id="player_score">0</p>
         <!-- HANDS -->
         <div class="d-grid-gap-2 card p-3">
-          <button class="btn btn-outline-success">
+          <button class="btn btn-outline-success" onclick="choose(0)">
             <img src="static/img/hand_rock.png" alt="hand_rock" width="50" class="img-fluid">
             <span class="fw-bold">Piedra</span>
           </button>
-          <button class="btn btn-outline-success">
+          <button class="btn btn-outline-success" onclick="choose(1)">
             <img src="static/img/hand_paper.png" alt="hand_paper" width="50" class="img-fluid">
             <span class="fw-bold">Papel</span>
           </button>
-          <button class="btn btn-outline-success">
+          <button class="btn btn-outline-success" onclick="choose(2)">
             <img src="static/img/hand_scissors.png" alt="hand_scissors" width="50" class="img-fluid">
             <span class="fw-bold">Tijeras</span>
           </button>
@@ -30,10 +30,10 @@
       <!-- PC -->
       <div class="col py-5 text-center">
         <h2>Computadora</h2>
-        <p class="fw-bold">0</p>
+        <p class="fw-bold" id="computer_score">0</p>
         <div class="card p-3">
           <div class="d-flex justify-content-center">
-            <img src="static/img/reload_icon.png" alt="reload_icon" width="200" class="img-fluid">
+            <img src="static/img/reload_icon.png" id="img_pc" alt="reload_icon" width="200" class="img-fluid">
           </div>
         </div>
       </div>
@@ -46,10 +46,10 @@
     <div class="row">
       <h2>Resultados</h2>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">El jugador eligio PIEDRA</li>
-        <li class="list-group-item">La computadora eligio PAPEL</li>
-        <li class="list-group-item text-danger">¡La computadora gana!</li>
-        <li class="list-group-item text-primary">Este no es tu dia.</li>
+        <li class="list-group-item" id="player_choice"></li>
+        <li class="list-group-item" id="computer_choice"></li>
+        <li class="list-group-item text-primary" id="round_result"></li>
+        <li class="list-group-item text-success" id="round_message"></li>
       </ul>
     </div>
     <div class="row text-center">

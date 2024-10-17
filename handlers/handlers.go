@@ -1,8 +1,11 @@
 package handlers
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
+	"rpsweb/rps"
+	"strconv"
 	"text/template"
 )
 
@@ -45,8 +48,16 @@ func Game(w http.ResponseWriter, r *http.Request) {
 }
 
 func Play(w http.ResponseWriter, r *http.Request) {
-	// TODO template
-	renderTemplate(w, "index.html", nil)
+	playerChoice, _ := strconv.Atoi(r.URL.Query().Get("c"))
+	result := rps.PlayRound(playerChoice)
+
+	out, err := json.MarshalIndent(result, "", "    ")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(out)
 }
 
 func About(w http.ResponseWriter, r *http.Request) {
@@ -66,4 +77,6 @@ func renderTemplate(w http.ResponseWriter, page string, data any) {
 
 func restartValue() {
 	player.Name = ""
+	rps.ComputerScore = 0
+	rps.PlayerScore = 0
 }
